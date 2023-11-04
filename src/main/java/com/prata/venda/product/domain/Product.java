@@ -1,17 +1,17 @@
 package com.prata.venda.product.domain;
 
 import com.prata.venda.product.application.api.ProductRequest;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@Table(name = "TB_PRODUCT")
+@Table(name = "TB_PRODUCT")
 public class Product {
 
     @Id
