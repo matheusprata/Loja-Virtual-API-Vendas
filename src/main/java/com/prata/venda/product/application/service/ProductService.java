@@ -1,7 +1,6 @@
 package com.prata.venda.product.application.service;
 
 import com.prata.venda.product.application.api.*;
-
 import java.util.List;
 
 public interface ProductService {

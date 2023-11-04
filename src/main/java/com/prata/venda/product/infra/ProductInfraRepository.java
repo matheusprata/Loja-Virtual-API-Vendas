@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +23,7 @@ public class ProductInfraRepository implements ProductRepository {
         try {
             productSpringDataJPARepository.save(product);
         }catch (DataIntegrityViolationException e){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Produto já cadastrado", e);
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Product registered", e);
         }
         log.info("[finish] ProductInfraRepository - saveProdutc");
         return product;

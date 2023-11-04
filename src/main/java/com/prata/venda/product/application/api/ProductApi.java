@@ -4,9 +4,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @Tag(name = "Product", description = "Product APIs")
 @RequestMapping("/v1/product")
