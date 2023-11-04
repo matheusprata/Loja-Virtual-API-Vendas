@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 @Log4j2
@@ -25,5 +27,13 @@ public class ProductInfraRepository implements ProductRepository {
         }
         log.info("[finish] ProductInfraRepository - saveProdutc");
         return product;
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        log.info("[inicia] ProductInfraRepository - getAllProducts");
+        List<Product> products = productSpringDataJPARepository.findAll();
+        log.info("[finaliza] ProductInfraRepository - getAllProducts");
+        return products;
     }
 }
