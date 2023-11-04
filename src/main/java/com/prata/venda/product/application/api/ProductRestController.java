@@ -23,9 +23,24 @@ public class ProductRestController implements ProductApi{
 
     @Override
     public List<ProductListResponse> getAllProduct() {
-        log.info("[inicia] ProductRestController - ProductListResponse");
+        log.info("[start] ProductRestController - ProductListResponse");
         List<ProductListResponse> products = productService.getAllProducts();
-        log.info("[finaliza] ProductRestController - ProductListResponse");
+        log.info("[finish] ProductRestController - ProductListResponse");
         return products;
+    }
+
+    @Override
+    public ProductResponse getById(Long id) {
+        log.info("[start] ProductRestController - getById");
+        ProductResponse getId = productService.getById(id);
+        log.info("[finish] ProductRestController - getById");
+        return getId;
+    }
+
+    @Override
+    public void updateProduct(Long id, ProductAlteracaoRequest productAlteracaoRequest) {
+        log.info("[start] ProductRestController - updateProduct");
+        productService.updateProduct(id, productAlteracaoRequest);
+        log.info("[finish] ProductRestController - updateProduct");
     }
 }

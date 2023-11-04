@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProductRepository {
     Product saveProduct(Product product);
     List<Product> getAllProducts();
+    Product findById(Long id);
 }

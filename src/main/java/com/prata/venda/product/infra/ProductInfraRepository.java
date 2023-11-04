@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -31,9 +32,19 @@ public class ProductInfraRepository implements ProductRepository {
 
     @Override
     public List<Product> getAllProducts() {
-        log.info("[inicia] ProductInfraRepository - getAllProducts");
+        log.info("[start] ProductInfraRepository - getAllProducts");
         List<Product> products = productSpringDataJPARepository.findAll();
-        log.info("[finaliza] ProductInfraRepository - getAllProducts");
+        log.info("[finish] ProductInfraRepository - getAllProducts");
         return products;
+    }
+
+    @Override
+    public Product findById(Long id) {
+        log.info("[start] ProductInfraRepository - getOneProduct");
+        Optional<Product> optionalProduct = productSpringDataJPARepository.findById(id);
+        Product product = optionalProduct
+                .orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST,"product not found!"));
+        log.info("[finish] ProductInfraRepository - getOneProduct");
+        return product;
     }
 }

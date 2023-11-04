@@ -1,5 +1,6 @@
 package com.prata.venda.product.domain;
 
+import com.prata.venda.product.application.api.ProductAlteracaoRequest;
 import com.prata.venda.product.application.api.ProductRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,5 +27,11 @@ public class Product {
         this.name = productRequest.getName();
         this.price = productRequest.getPrice();
         this.promotion = productRequest.getPromotion();
+    }
+
+    public void update(ProductAlteracaoRequest productAlteracaoRequest) {
+        this.name = productAlteracaoRequest.getName();
+        this.price = productAlteracaoRequest.getPrice();
+        this.promotion = productAlteracaoRequest.getPromotion();
     }
 }

@@ -1,8 +1,6 @@
 package com.prata.venda.product.application.service;
 
-import com.prata.venda.product.application.api.ProductIdResponse;
-import com.prata.venda.product.application.api.ProductListResponse;
-import com.prata.venda.product.application.api.ProductRequest;
+import com.prata.venda.product.application.api.*;
 import com.prata.venda.product.application.repository.ProductRepository;
 import com.prata.venda.product.domain.Product;
 import lombok.RequiredArgsConstructor;
@@ -30,9 +28,26 @@ public class ProductApplicationService implements ProductService {
 
     @Override
     public List<ProductListResponse> getAllProducts() {
-        log.info("[inicia] ProductApplicationService - getAllProducts");
+        log.info("[start] ProductApplicationService - getAllProducts");
         List<Product> products = productRepository.getAllProducts();
-        log.info("[finaliza] ProductApplicationService - getAllProducts");
+        log.info("[finish] ProductApplicationService - getAllProducts");
         return ProductListResponse.converte(products);
+    }
+
+    @Override
+    public ProductResponse getById(Long id) {
+        log.info("[inicia] ProductApplicationService - getById");
+        Product product = productRepository.findById(id);
+        log.info("[finaliza] ProductApplicationService - getById");
+        return new ProductResponse(product);
+    }
+
+    @Override
+    public void updateProduct(Long id, ProductAlteracaoRequest productAlteracaoRequest) {
+        log.info("[inicia] ProductApplicationService - updateProduct");
+        Product product = productRepository.findById(id);
+        product.update(productAlteracaoRequest);
+        productRepository.saveProduct(product);
+        log.info("[inicia] ProductApplicationService - updateProduct");
     }
 }

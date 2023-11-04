@@ -19,4 +19,13 @@ public interface ProductApi {
     @GetMapping(value = "/all")
     @ResponseStatus(code = HttpStatus.OK)
     List<ProductListResponse> getAllProduct();
+
+    @GetMapping(value = "/id")
+    @ResponseStatus(code = HttpStatus.OK)
+    ProductResponse getById(@RequestParam Long id);
+
+    @PatchMapping(value = "/id")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void updateProduct(@RequestParam Long id,
+                     @Valid @RequestBody ProductAlteracaoRequest productAlteracaoRequest);
 }
