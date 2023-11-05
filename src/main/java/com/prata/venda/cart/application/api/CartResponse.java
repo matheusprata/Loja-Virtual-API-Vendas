@@ -10,10 +10,6 @@ import java.time.LocalDate;
 @Data
 public class CartResponse {
     Long idCart;
-    Long idFuncionario;
-    String nomeFuncionario;
-    String cpf;
-    String nomeCompleto;
     TypePay typePay;
     LocalDate dataCart;
     BigDecimal valorEntrada;
