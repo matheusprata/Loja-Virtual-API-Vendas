@@ -1,5 +1,6 @@
 package com.prata.venda.product.domain;
 
+import com.prata.venda.cart.domain.Cart;
 import com.prata.venda.product.application.api.ProductAlteracaoRequest;
 import com.prata.venda.product.application.api.ProductRequest;
 import jakarta.persistence.*;
@@ -8,6 +9,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -19,10 +23,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idProduct;
+
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Cart> carts;
+
     @NotBlank
     private String name;
     @NotNull
-    private double price;
+    private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private Promotion promotion;
 

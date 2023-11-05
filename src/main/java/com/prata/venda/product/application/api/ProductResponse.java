@@ -4,11 +4,13 @@ import com.prata.venda.product.domain.Product;
 import com.prata.venda.product.domain.Promotion;
 import lombok.Value;
 
+import java.math.BigDecimal;
+
 @Value
 public class ProductResponse {
     Long idProduct;
     String name;
-    double price;
+    BigDecimal price;
     Promotion promotion;
 
     public ProductResponse(Product product){
