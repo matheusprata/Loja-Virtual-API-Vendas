@@ -35,18 +35,18 @@ public class ProductApplicationService implements ProductService {
 
     @Override
     public ProductResponse getById(Long id) {
-        log.info("[inicia] ProductApplicationService - getById");
+        log.info("[start] ProductApplicationService - getById");
         Product product = productRepository.findById(id);
-        log.info("[finaliza] ProductApplicationService - getById");
+        log.info("[finish] ProductApplicationService - getById");
         return new ProductResponse(product);
     }
 
     @Override
     public void updateProduct(Long id, ProductAlteracaoRequest productAlteracaoRequest) {
-        log.info("[inicia] ProductApplicationService - updateProduct");
+        log.info("[start] ProductApplicationService - updateProduct");
         Product product = productRepository.findById(id);
         product.update(productAlteracaoRequest);
         productRepository.saveProduct(product);
-        log.info("[inicia] ProductApplicationService - updateProduct");
+        log.info("[finish] ProductApplicationService - updateProduct");
     }
 }
