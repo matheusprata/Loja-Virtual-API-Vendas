@@ -18,3 +18,7 @@ INSERT INTO TB_PRODUCT (id_product, name, price, promotion) VALUES (13, 'shampoo
 INSERT INTO TB_PRODUCT (id_product, name, price, promotion) VALUES (14, 'alvejante', 4.0, 'NONE');
 INSERT INTO TB_PRODUCT (id_product, name, price, promotion) VALUES (15, 'lâmina de barbear', 1.0, 'NONE');
 ```
+```
+INSERT INTO tb_buy (product_id, type_pay, valor_entrada, desconto, quantidade_parcelas, valor_final, data_buy, observacao, status)
+VALUES (1, 'CARTAO_CREDITO', 100.00, 10, 3, 270.00, '2023-11-05', 'Observação da compra', 'DISPONIVEL');
+```
