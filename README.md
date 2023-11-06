@@ -1,6 +1,9 @@
 # Loja-Virtual-API-Vendas
 API de vendas com carrinho de compras, promoções e produtos
 
+## Link da aplicação funcionando no railway e usando o swagger para consultar e passar os valores
+https://loja-virtual-api-vendas-production.up.railway.app/venda/api/public/swagger-ui/index.html#/
+
 ```
 INSERT INTO TB_PRODUCT (id_product, name, price, promotion) VALUES (1, 'sabão', 12, 'BUY_ONE_GET_ONE_FREE');
 INSERT INTO TB_PRODUCT (id_product, name, price, promotion) VALUES (2, 'shampoo', 8, 'NONE');
